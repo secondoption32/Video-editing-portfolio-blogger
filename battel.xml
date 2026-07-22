@@ -1,0 +1,1090 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+  <meta charset='UTF-8'/>
+  <meta content='width=device-width, initial-scale=1' name='viewport'/>
+  <title><data:blog.pageTitle/></title>
+
+  <link href='https://fonts.googleapis.com/css2?family=Anton&amp;family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap' rel='stylesheet'/>
+  <link href='https://fonts.googleapis.com' rel='preconnect'/>
+
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/video.js/8.10.0/video-js.min.css' rel='stylesheet'/>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/video.js/8.10.0/video.min.js'/>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/3.0.1/Youtube.min.js'/>
+
+  <b:skin><![CDATA[
+    #vep-root{
+      --bg:#0b0f0e;
+      --surface:#121816;
+      --surface-2:#161d1a;
+      --text:#ecebe3;
+      --muted:#8b958f;
+      --teal:#3fbfb0;
+      --orange:#e2793c;
+      --line: rgba(236,235,227,0.12);
+      font-family:'Inter',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.5;
+      -webkit-font-smoothing:antialiased;
+    }
+    body{background:var(--bg);margin:0;}
+    #vep-root *{box-sizing:border-box;}
+    #vep-root .widget, #vep-root .Header, #vep-root .PageList, #vep-root .Text,
+    #vep-root .Blog, #vep-root .widget-content, #vep-root section.header,
+    #vep-root .header-widget{
+      margin:0 !important;padding:0 !important;
+    }
+    #vep-root{overflow-x:hidden;width:100%;}
+    #vep-root img{max-width:100%;}
+    #vep-root a{color:inherit;text-decoration:none;}
+    #vep-root .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+    #vep-root h1,#vep-root h2,#vep-root h3{
+      font-family:'Anton',sans-serif;
+      font-weight:400;
+      letter-spacing:0.5px;
+      text-transform:uppercase;
+      margin:0;
+    }
+    #vep-root .mono{font-family:'JetBrains Mono',monospace;}
+
+    /* sprocket-hole filmstrip divider */
+    #vep-root .filmstrip{
+      height:14px;
+      background-image:
+        repeating-radial-gradient(circle at 12px 7px, var(--bg) 0 4px, transparent 4.5px 20px);
+      background-color:var(--surface-2);
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+    }
+
+    /* ---------- NAV ---------- */
+    #vep-root nav{
+      position:relative;overflow:hidden;
+      display:flex;align-items:center;justify-content:space-between;
+      flex-wrap:wrap; row-gap:12px;
+      padding:18px max(20px, calc((100% - 1080px) / 2 + 20px));
+      width:100%; max-width:none; margin:0;
+    }
+    #vep-root #header,
+    #vep-root #header .widget,
+    #vep-root #header .widget-content{
+      width:100% !important;
+      max-width:none !important;
+      margin:0 !important;
+      padding:0 !important;
+    }
+    #vep-root nav .nav-bg-video{
+      position:absolute;top:0;left:0;
+      width:100%;height:100%;object-fit:cover;
+      z-index:0;pointer-events:none;
+      opacity:0.35;
+    }
+    #vep-root nav .nav-overlay{
+      position:absolute;inset:0;
+      background:linear-gradient(90deg, rgba(11,15,14,0.85), rgba(11,15,14,0.55));
+      z-index:0;
+    }
+    #vep-root nav .brand, #vep-root nav .navlinks{position:relative;z-index:1;}
+    #vep-root .brand{font-family:'Anton',sans-serif;font-size:18px;letter-spacing:1px;}
+    #vep-root .brand span{color:var(--orange);}
+    #vep-root .navlinks{display:flex;gap:20px;flex-wrap:wrap;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--orange);}
+    #vep-root .navlinks a:hover{color:var(--teal);}
+
+    @media(min-width:600px){
+      #vep-root nav{padding:22px max(24px, calc((100% - 1080px) / 2 + 24px));}
+      #vep-root .brand{font-size:20px;}
+      #vep-root .navlinks{gap:28px;font-size:13px;}
+    }
+
+    /* ---------- HERO ---------- */
+    #vep-root .hero{
+      position:relative;
+      padding:40px 20px 36px;max-width:1080px;margin:0 auto;
+      overflow:hidden;
+    }
+    #vep-root .hero:before{
+      content:"";
+      position:absolute;top:-120px;left:-80px;
+      width:340px;height:340px;border-radius:50%;
+      background:radial-gradient(circle, rgba(63,191,176,0.25), transparent 70%);
+      filter:blur(10px);pointer-events:none;z-index:0;
+    }
+    #vep-root .hero:after{
+      content:"";
+      position:absolute;bottom:-140px;right:-100px;
+      width:380px;height:380px;border-radius:50%;
+      background:radial-gradient(circle, rgba(226,121,60,0.20), transparent 70%);
+      filter:blur(10px);pointer-events:none;z-index:0;
+    }
+    #vep-root .hero > *{position:relative;z-index:1;}
+    #vep-root .tc-readout{
+      display:inline-flex;align-items:center;gap:10px;
+      font-size:12px;color:var(--teal);border:1px solid var(--line);
+      padding:5px 10px;border-radius:2px;margin-bottom:18px;
+      max-width:100%;
+    }
+    #vep-root .tc-readout .dot{width:6px;height:6px;border-radius:50%;background:var(--orange);animation:vep-blink 1.4s infinite;flex-shrink:0;}
+    @keyframes vep-blink{50%{opacity:0.25;}}
+    #vep-root .hero h1{font-size:clamp(32px,9vw,84px);line-height:1;word-break:break-word;}
+    #vep-root .hero h1 .accent{color:var(--orange);}
+    #vep-root .hero p.role{
+      margin-top:14px;font-size:13px;color:var(--muted);
+      letter-spacing:0.06em;text-transform:uppercase;
+    }
+    #vep-root .hero-actions{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;}
+    #vep-root .btn{
+      padding:12px 18px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
+      border-radius:2px;border:1px solid var(--line);transition:all .2s ease;
+      display:inline-block;text-align:center;flex:1 1 auto;
+    }
+    #vep-root .btn.primary{background:var(--teal);color:#06110f;border-color:var(--teal);font-weight:600;}
+    #vep-root .btn.primary:hover{background:#57d3c5;}
+    #vep-root .btn.ghost:hover{border-color:var(--teal);color:var(--teal);}
+
+    @media(min-width:600px){
+      #vep-root .hero{padding:64px 24px 48px;}
+      #vep-root .tc-readout{font-size:13px;padding:6px 12px;margin-bottom:22px;}
+      #vep-root .hero p.role{font-size:15px;letter-spacing:0.08em;}
+      #vep-root .hero-actions{margin-top:32px;gap:14px;}
+      #vep-root .btn{padding:13px 22px;font-size:13px;flex:0 1 auto;}
+    }
+
+    /* ---------- POSTS / WORK GRID ---------- */
+    #vep-root .section{padding:40px 20px;max-width:1080px;margin:0 auto;}
+    #vep-root .section-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:8px;}
+    #vep-root .section-head h2{font-size:24px;}
+    #vep-root .section-head .count{color:var(--muted);font-size:12px;}
+    #vep-root .grid{display:grid;grid-template-columns:1fr;gap:16px;}
+
+    @media(min-width:600px){
+      #vep-root .section{padding:64px 24px;}
+      #vep-root .section-head{margin-bottom:32px;}
+      #vep-root .section-head h2{font-size:30px;}
+      #vep-root .section-head .count{font-size:13px;}
+      #vep-root .grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+    }
+    #vep-root .card{
+      background:var(--surface);border:1px solid var(--line);border-radius:3px;overflow:hidden;
+      cursor:pointer;transition:transform .25s ease, border-color .25s ease;
+    }
+    #vep-root .card:hover{transform:translateY(-4px);border-color:var(--teal);}
+    #vep-root .thumb{
+      position:relative;aspect-ratio:16/9;
+      background:linear-gradient(135deg,#1d2725,#0e1412);
+      display:flex;align-items:center;justify-content:center;
+      overflow:hidden;
+    }
+    #vep-root .thumb.portrait{aspect-ratio:9/16;max-width:220px;margin:0 auto;}
+    #vep-root .grid.grid-portrait{grid-template-columns:repeat(2,1fr);gap:10px;}
+    #vep-root .grid.grid-small{grid-template-columns:repeat(2,1fr);max-width:none;margin:0;gap:10px;}
+    @media(min-width:480px){
+      #vep-root .grid.grid-portrait{grid-template-columns:repeat(4,1fr);gap:12px;}
+      #vep-root .grid.grid-small{grid-template-columns:repeat(4,1fr);gap:10px;}
+    }
+    @media(min-width:600px){
+      #vep-root .grid.grid-portrait{gap:16px;}
+      #vep-root .grid.grid-small{gap:14px;}
+    }
+    #vep-root .thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+    #vep-root .thumb .vep-native-video{
+      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
+    }
+    #vep-root .thumb iframe.vep-bg-video{
+      position:absolute;inset:0;width:100%;height:100%;border:0;
+      pointer-events:none;
+    }
+    #vep-root .thumb .video-js.vep-bg-video{
+      position:absolute;inset:0;width:100%;height:100%;
+      pointer-events:none;
+    }
+    #vep-root .thumb .video-js.vep-bg-video .vjs-tech{
+      width:100%;height:100%;object-fit:cover;
+    }
+    #vep-root .thumb .video-js .vjs-big-play-button,
+    #vep-root .thumb .video-js .vjs-control-bar,
+    #vep-root .thumb .video-js .vjs-loading-spinner{
+      display:none !important;
+    }
+    #vep-root .thumb .thumb-tint{
+      position:absolute;inset:0;background:rgba(6,10,9,0.15);z-index:1;
+    }
+    #vep-root .play{
+      width:48px;height:48px;border-radius:50%;background:rgba(11,15,14,0.65);
+      border:1px solid var(--teal);display:flex;align-items:center;justify-content:center;
+      position:relative;z-index:2;
+    }
+    #vep-root .play:after{
+      content:"";border-style:solid;border-width:8px 0 8px 13px;
+      border-color:transparent transparent transparent var(--teal);margin-left:3px;
+    }
+    #vep-root .card-body{padding:16px;}
+    #vep-root .card-body .tc{font-size:11px;color:var(--orange);margin-bottom:6px;letter-spacing:0.05em;}
+    #vep-root .card-body h3{font-size:16px;text-transform:none;font-family:'Inter',sans-serif;font-weight:600;letter-spacing:0;}
+    #vep-root .card-body .role-tag{font-size:12px;color:var(--muted);margin-top:4px;}
+
+    /* ---------- CREATIVE TOOLKIT ---------- */
+    #vep-root .toolkit-grid{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;
+    }
+    #vep-root .tool-card{
+      min-height:128px;padding:18px 12px;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+      background:var(--surface);border:1px solid var(--line);border-radius:3px;
+      transition:transform .2s ease,border-color .2s ease;
+    }
+    #vep-root .tool-card:hover{transform:translateY(-3px);border-color:var(--teal);}
+    #vep-root .tool-icon{width:52px;height:52px;object-fit:contain;display:block;}
+    #vep-root .tool-name{
+      color:var(--text);font-size:12px;font-weight:600;text-align:center;
+      line-height:1.25;
+    }
+    @media(min-width:600px){
+      #vep-root .toolkit-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;}
+      #vep-root .tool-card{min-height:160px;padding:22px 12px;gap:14px;}
+      #vep-root .tool-icon{width:68px;height:68px;}
+      #vep-root .tool-name{font-size:13px;}
+    }
+
+    /* ---------- ABOUT ---------- */
+    #vep-root .about h2{margin-bottom:8px;font-size:22px;}
+    #vep-root .about p{color:var(--muted);font-size:13px;line-height:1.55;margin:0;max-width:600px;}
+
+    @media(min-width:720px){
+      #vep-root .about h2{font-size:26px;}
+      #vep-root .about p{font-size:14px;}
+    }
+
+    /* ---------- CONTACT ---------- */
+    #vep-root .contact{text-align:center;padding-top:8px;}
+    #vep-root .contact h2{font-size:clamp(26px,7vw,52px);}
+    #vep-root .contact-links{
+      display:flex;align-items:center;justify-content:center;flex-wrap:wrap;
+      gap:8px;margin-top:10px;
+    }
+    #vep-root .contact .email{
+      font-size:13px;color:var(--teal);
+      border-bottom:1px solid var(--teal);padding-bottom:2px;
+      word-break:break-all;
+    }
+    #vep-root .contact-icon{
+      width:15px;height:15px;object-fit:contain;display:block;
+      flex:0 0 15px;
+    }
+    #vep-root .contact-icon + .email,
+    #vep-root .contact-icon + .social-link{margin-left:-4px;}
+    #vep-root .contact-sep{color:var(--muted);font-size:13px;}
+    #vep-root .social-link{
+      font-size:13px;color:var(--muted);
+      border-bottom:1px solid var(--line);padding-bottom:2px;
+      transition:color .2s ease, border-color .2s ease;
+    }
+    #vep-root .social-link:hover{color:var(--orange);border-color:var(--orange);}
+
+    #vep-root footer{padding:16px 20px;color:var(--muted);font-size:11px;border-top:1px solid var(--line);}
+    #vep-root .footer-inner{
+      max-width:1080px;margin:0 auto;
+      display:flex;flex-direction:column;align-items:center;gap:3px;text-align:center;
+    }
+    #vep-root .footer-brand{
+      font-family:'Anton',sans-serif;letter-spacing:0.5px;
+      color:var(--text);font-size:12px;text-transform:uppercase;
+    }
+    #vep-root .footer-tagline{color:var(--muted);font-size:10px;}
+    #vep-root .footer-copy{color:var(--muted);font-size:10px;}
+
+    @media(min-width:600px){
+      #vep-root .contact-links{margin-top:12px;gap:12px;}
+      #vep-root .contact-icon + .email,
+      #vep-root .contact-icon + .social-link{margin-left:-8px;}
+      #vep-root .contact .email{font-size:14px;}
+      #vep-root .contact-sep, #vep-root .social-link{font-size:14px;}
+      #vep-root footer{padding:18px 24px;font-size:11px;}
+      #vep-root .footer-inner{flex-direction:row;justify-content:center;text-align:center;gap:10px;}
+      #vep-root .footer-brand{font-size:13px;}
+    }
+
+    /* ---------- BLOGGER WIDGET RESET ----------
+       Blogger adds the class "section" to every b:section, including the
+       nested About, Contact and Footer widgets.  Without this reset those
+       small wrappers inherit the main page-section padding a second time. */
+    #vep-root #vep-about .about-text,
+    #vep-root #vep-about .about-text.section,
+    #vep-root #vep-contact .contact-email,
+    #vep-root #vep-contact .contact-email.section,
+    #vep-root footer #footer,
+    #vep-root footer #footer.section{
+      width:auto !important;
+      min-height:0 !important;
+      margin:0 !important;
+      padding:0 !important;
+      float:none !important;
+      background:transparent !important;
+      border:0 !important;
+    }
+    #vep-root #vep-about .about-text .widget,
+    #vep-root #vep-about .about-text .widget-content,
+    #vep-root #vep-contact .contact-email .widget,
+    #vep-root #vep-contact .contact-email .widget-content,
+    #vep-root footer #footer .widget,
+    #vep-root footer #footer .widget-content{
+      width:auto !important;
+      min-height:0 !important;
+      margin:0 !important;
+      padding:0 !important;
+      float:none !important;
+      background:transparent !important;
+      border:0 !important;
+    }
+    /* Make the Blogger contact/footer wrapper transparent to the flex rows. */
+    #vep-root #vep-contact .contact-email,
+    #vep-root #vep-contact .contact-email .widget,
+    #vep-root #vep-contact .contact-email .widget-content,
+    #vep-root footer #footer,
+    #vep-root footer #footer .widget,
+    #vep-root footer #footer .widget-content{display:contents !important;}
+    #vep-root #vep-contact .contact-links .email,
+    #vep-root #vep-contact .contact-links .social-link,
+    #vep-root #vep-contact .contact-links .contact-sep{
+      flex:0 0 auto !important;
+      margin:0 !important;
+    }
+    #vep-root #vep-about .about-text p{margin:0 !important;}
+    #vep-root #vep-contact.section{padding-top:36px !important;padding-bottom:36px !important;}
+    #vep-root footer{min-height:0 !important;}
+
+    /* ---------- MODAL ---------- */
+    #vep-root .modal-overlay{
+      display:none;position:fixed;inset:0;background:rgba(6,9,8,0.9);
+      z-index:999;align-items:center;justify-content:center;padding:16px;
+    }
+    #vep-root .modal-overlay.open{display:flex;}
+    #vep-root .modal-box{width:100%;max-width:880px;}
+    #vep-root .modal-frame{position:relative;width:100%;aspect-ratio:16/9;background:#000;}
+    #vep-root .modal-frame iframe{width:100%;height:100%;border:0;}
+    #vep-root .modal-native-video{display:none;width:100%;height:100%;object-fit:contain;background:#000;}
+    #vep-root .modal-native-video.active{display:block;}
+    #vep-root .modal-close{
+      display:block;margin:0 0 10px auto;color:var(--muted);font-size:13px;
+      letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;
+    }
+    #vep-root .modal-close:hover{color:var(--orange);}
+  ]]></b:skin>
+
+  <b:if cond='data:view.isSingleItem'>
+    <meta expr:content='data:blog.pageName' name='description'/>
+  </b:if>
+
+  <b:include data='blog' name='all-head-content'/>
+</head>
+
+<body>
+<div id='vep-root'>
+
+  <!-- Header / Nav -->
+  <b:section class='header' id='header' maxwidgets='1' showaddelement='no'>
+    <b:widget id='Header1' locked='true' title='Shoyab&apos;s Portfolio (Header)' type='Header' version='2' visible='true'>
+      <b:widget-settings>
+        <b:widget-setting name='displayUrl'/>
+        <b:widget-setting name='displayHeight'>0</b:widget-setting>
+        <b:widget-setting name='sectionWidth'>150</b:widget-setting>
+        <b:widget-setting name='useImage'>false</b:widget-setting>
+        <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
+        <b:widget-setting name='imagePlacement'>BEHIND</b:widget-setting>
+        <b:widget-setting name='displayWidth'>0</b:widget-setting>
+      </b:widget-settings>
+      <b:includable id='main'>
+        <nav>
+          <video autoplay='autoplay' class='nav-bg-video' loop='loop' muted='muted' playsinline='playsinline'>
+            <source src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/vecteezy_infinite-motion-graphic-background-black-and-white-looping_47075504.mp4' type='video/mp4'/>
+          </video>
+          <div class='nav-overlay'/>
+          <a class='brand' expr:href='data:blog.homepageUrl'>
+            <data:blog.title/><span>.</span>
+          </a>
+          <div class='navlinks'>
+            <a href='#vep-work'>Work</a>
+            <a href='#vep-client'>Clients</a>
+            <a href='#vep-motion'>Motion</a>
+            <a href='#vep-3d'>3D</a>
+            <a href='#vep-about'>About</a>
+            <a href='#vep-contact'>Contact</a>
+          </div>
+        </nav>
+      </b:includable>
+      <b:includable id='behindImageStyle'>
+    <b:if cond='data:sourceUrl'>
+      <b:include cond='data:this.image' data='{                    image: data:this.image,                    selector: &quot;.header-widget&quot;                  }' name='responsiveImageStyle'/>
+      <style type='text/css'>
+        .header-widget {
+          background-position: <data:blog.locale.languageAlignment/>;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      </style>
+    </b:if>
+  </b:includable>
+      <b:includable id='description'>
+    <p>
+      <data:this.description/>
+    </p>
+  </b:includable>
+      <b:includable id='image'>
+    <a class='header-image-wrapper' expr:href='data:blog.homepageUrl'>
+      <b:include data='{                                                 image: data:image,                                                 altText: data:blog.title.escaped,                                                 originalWidth: data:width,                                                 originalHeight: data:height                                               }' name='responsiveImage'/>
+    </a>
+  </b:includable>
+      <b:includable id='title'>
+    <h1>
+      <b:tag cond='data:view.url != data:blog.homepageUrl' expr:href='data:blog.homepageUrl' name='a'>
+        <data:title/>
+      </b:tag>
+    </h1>
+  </b:includable>
+    </b:widget>
+  </b:section>
+
+  <div class='filmstrip'/>
+
+  <!-- Hero -->
+  <header class='hero'>
+    <div class='tc-readout mono'><span class='dot'/><span id='vep-tc'>00:00:00:00</span> &#8212; REC</div>
+    <h1>Cutting stories<br/>frame by <span class='accent'><data:blog.title/></span></h1>
+    <p class='role'><data:blog.description/></p>
+    <div class='hero-actions'>
+      <a class='btn primary' href='#vep-work'>View the reel</a>
+      <a class='btn ghost' href='#vep-contact'>Start a project</a>
+    </div>
+  </header>
+
+  <div class='filmstrip'/>
+
+  <!-- Posts as work grid -->
+  <section class='section' id='vep-work'>
+    <div class='section-head'>
+      <h2>Selected work</h2>
+      <span class='count mono'><data:blog.postCount/> CUTS</span>
+    </div>
+    <div class='grid grid-portrait grid-small' id='vep-grid'>
+    <div class='card'>
+        <div class='thumb portrait'>
+            <video class='video-js vep-bg-video vjs-vid' id='vjs-vid-1' data-yt-id='tDwgFFYjF8M' preload='auto'>
+                <source src='https://www.youtube.com/watch?v=tDwgFFYjF8M' type='video/youtube'/>
+            </video>
+            <div class='thumb-tint'/>
+        </div>
+        <div class='card-body'>
+            <div class='tc mono'>00:00:00:00 &#8211; 00:01:42:10</div>
+            <h3>Coastline &#8212; Brand Film</h3>
+            <div class='role-tag'>Edit &#183; Color</div>
+        </div>
+    </div>
+    <div class='card'>
+        <div class='thumb portrait'>
+            <video class='video-js vep-bg-video vjs-vid' id='vjs-vid-2' data-yt-id='tDwgFFYjF8M' preload='auto'>
+                <source src='https://www.youtube.com/watch?v=tDwgFFYjF8M' type='video/youtube'/>
+            </video>
+            <div class='thumb-tint'/>
+        </div>
+        <div class='card-body'>
+            <div class='tc mono'>00:00:00:00 &#8211; 00:03:15:02</div>
+            <h3>Nightbloom &#8212; Music Video</h3>
+            <div class='role-tag'>Edit &#183; VFX</div>
+        </div>
+    </div>
+    <div class='card'>
+        <div class='thumb portrait'>
+            <video class='video-js vep-bg-video vjs-vid' id='vjs-vid-3' data-yt-id='tDwgFFYjF8M' preload='auto'>
+                <source src='https://www.youtube.com/watch?v=tDwgFFYjF8M' type='video/youtube'/>
+            </video>
+            <div class='thumb-tint'/>
+        </div>
+        <div class='card-body'>
+            <div class='tc mono'>00:00:00:00 &#8211; 00:01:30:00</div>
+            <h3>Reel 2026 &#8212; Showreel</h3>
+            <div class='role-tag'>Edit &#183; VFX &#183; Sound</div>
+        </div>
+    </div>
+</div>
+
+  </section>
+
+  <div class='filmstrip'/>
+
+  <!-- Client Work & Restaurant Commercials -->
+  <section class='section' id='vep-client'>
+    <div class='section-head'>
+      <h2>Client work &amp; restaurant commercials</h2>
+    </div>
+    <div class='grid grid-portrait grid-small'>
+      <div class='card'>
+        <div class='thumb portrait'>
+            <video class='video-js vep-bg-video vjs-vid' id='vjs-vid-4' data-yt-id='tDwgFFYjF8M' preload='auto'>
+                <source src='https://www.youtube.com/watch?v=tDwgFFYjF8M' type='video/youtube'/>
+            </video>
+            <div class='thumb-tint'/>
+        </div>
+        <div class='card-body'>
+            <div class='tc mono'>00:00:00:00 &#8211; 00:00:30:00</div>
+            <h3>The Bistro &#8212; Menu Promo</h3>
+            <div class='role-tag'>Client &#183; Restaurant</div>
+        </div>
+    </div>
+      <div class='card'>
+        <div class='thumb portrait'>
+            <video class='video-js vep-bg-video vjs-vid' id='vjs-vid-5' data-yt-id='tDwgFFYjF8M' preload='auto'>
+                <source src='https://www.youtube.com/watch?v=tDwgFFYjF8M' type='video/youtube'/>
+            </video>
+            <div class='thumb-tint'/>
+        </div>
+        <div class='card-body'>
+            <div class='tc mono'>00:00:00:00 &#8211; 00:00:45:00</div>
+            <h3>Spice Route &#8212; Reel Ad</h3>
+            <div class='role-tag'>Client &#183; Restaurant</div>
+        </div>
+    </div>
+      <div class='card'>
+        <div class='thumb portrait'>
+            <video class='video-js vep-bg-video vjs-vid' id='vjs-vid-6' data-yt-id='tDwgFFYjF8M' preload='auto'>
+                <source src='https://www.youtube.com/watch?v=tDwgFFYjF8M' type='video/youtube'/>
+            </video>
+            <div class='thumb-tint'/>
+        </div>
+        <div class='card-body'>
+            <div class='tc mono'>00:00:00:00 &#8211; 00:01:00:00</div>
+            <h3>Urban Roast Cafe &#8212; Brand Reel</h3>
+            <div class='role-tag'>Client &#183; Commercial</div>
+        </div>
+    </div>
+    </div>
+  </section>
+
+  <div class='filmstrip'/>
+
+  <!-- Motion Graphics -->
+  <section class='section' id='vep-motion'>
+    <div class='section-head'>
+      <h2>Motion graphics</h2>
+    </div>
+    <div class='grid grid-portrait grid-small'>
+      <div class='card'>
+        <div class='thumb portrait'>
+            <video class='vep-native-video' muted='muted' playsinline='playsinline' preload='none' data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/24X7.mp4'>
+                <source data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/24X7.mp4' type='video/mp4'/>
+            </video>
+            <div class='thumb-tint'/>
+        </div>
+        <div class='card-body'>
+            <div class='tc mono'>00:00:00:00 &#8211; 00:00:20:00</div>
+            <h3>24X7</h3>
+            <div class='role-tag'>Motion &#183; 2D</div>
+        </div>
+    </div>
+      <div class='card'>
+        <div class='thumb portrait'>
+            <video class='vep-native-video' muted='muted' playsinline='playsinline' preload='none' data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Abcd%20Imli.mp4'>
+                <source data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Abcd%20Imli.mp4' type='video/mp4'/>
+            </video>
+            <div class='thumb-tint'/>
+        </div>
+        <div class='card-body'>
+            <div class='tc mono'>00:00:00:00 &#8211; 00:00:20:00</div>
+            <h3>Abcd Imli</h3>
+            <div class='role-tag'>Motion &#183; 2D</div>
+        </div>
+    </div>
+      <div class='card'>
+        <div class='thumb portrait'>
+            <video class='vep-native-video' muted='muted' playsinline='playsinline' preload='none' data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Archi%20Logo%20Motion.mp4'>
+                <source data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Archi%20Logo%20Motion.mp4' type='video/mp4'/>
+            </video>
+            <div class='thumb-tint'/>
+        </div>
+        <div class='card-body'>
+            <div class='tc mono'>00:00:00:00 &#8211; 00:00:20:00</div>
+            <h3>Archi Logo Motion</h3>
+            <div class='role-tag'>Motion &#183; 2D</div>
+        </div>
+    </div>
+      <div class='card'>
+        <div class='thumb portrait'>
+            <video class='vep-native-video' muted='muted' playsinline='playsinline' preload='none' data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Archi%20Saffron%20Viraj.mp4'>
+                <source data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Archi%20Saffron%20Viraj.mp4' type='video/mp4'/>
+            </video>
+            <div class='thumb-tint'/>
+        </div>
+        <div class='card-body'>
+            <div class='tc mono'>00:00:00:00 &#8211; 00:00:20:00</div>
+            <h3>Archi Saffron Viraj</h3>
+            <div class='role-tag'>Motion &#183; 2D</div>
+        </div>
+    </div>
+      <div class='card'>
+        <div class='thumb portrait'>
+            <video class='vep-native-video' muted='muted' playsinline='playsinline' preload='none' data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Build.mp4'>
+                <source data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Build.mp4' type='video/mp4'/>
+            </video>
+            <div class='thumb-tint'/>
+        </div>
+        <div class='card-body'>
+            <div class='tc mono'>00:00:00:00 &#8211; 00:00:20:00</div>
+            <h3>Build</h3>
+            <div class='role-tag'>Motion &#183; 2D</div>
+        </div>
+    </div>
+      <div class='card'>
+        <div class='thumb portrait'>
+            <video class='vep-native-video' muted='muted' playsinline='playsinline' preload='none' data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Dham%20222.mp4'>
+                <source data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Dham%20222.mp4' type='video/mp4'/>
+            </video>
+            <div class='thumb-tint'/>
+        </div>
+        <div class='card-body'>
+            <div class='tc mono'>00:00:00:00 &#8211; 00:00:20:00</div>
+            <h3>Dham 222</h3>
+            <div class='role-tag'>Motion &#183; 2D</div>
+        </div>
+    </div>
+      <div class='card'>
+        <div class='thumb portrait'>
+            <video class='vep-native-video' muted='muted' playsinline='playsinline' preload='none' data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Gym%20Pilates.mp4'>
+                <source data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Gym%20Pilates.mp4' type='video/mp4'/>
+            </video>
+            <div class='thumb-tint'/>
+        </div>
+        <div class='card-body'>
+            <div class='tc mono'>00:00:00:00 &#8211; 00:00:20:00</div>
+            <h3>Gym Pilates</h3>
+            <div class='role-tag'>Motion &#183; 2D</div>
+        </div>
+    </div>
+      <div class='card'>
+        <div class='thumb portrait'>
+            <video class='vep-native-video' muted='muted' playsinline='playsinline' preload='none' data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Imli%20Babu%20Bhaiya.mp4'>
+                <source data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Imli%20Babu%20Bhaiya.mp4' type='video/mp4'/>
+            </video>
+            <div class='thumb-tint'/>
+        </div>
+        <div class='card-body'>
+            <div class='tc mono'>00:00:00:00 &#8211; 00:00:20:00</div>
+            <h3>Imli Babu Bhaiya</h3>
+            <div class='role-tag'>Motion &#183; 2D</div>
+        </div>
+    </div>
+      <div class='card'>
+        <div class='thumb portrait'>
+            <video class='vep-native-video' muted='muted' playsinline='playsinline' preload='none' data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Ishq%20Risk%20Imli.mp4'>
+                <source data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Ishq%20Risk%20Imli.mp4' type='video/mp4'/>
+            </video>
+            <div class='thumb-tint'/>
+        </div>
+        <div class='card-body'>
+            <div class='tc mono'>00:00:00:00 &#8211; 00:00:20:00</div>
+            <h3>Ishq Risk Imli</h3>
+            <div class='role-tag'>Motion &#183; 2D</div>
+        </div>
+    </div>
+      <div class='card'>
+        <div class='thumb portrait'>
+            <video class='vep-native-video' muted='muted' playsinline='playsinline' preload='none' data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Mehman%20Logo.mp4'>
+                <source data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Mehman%20Logo.mp4' type='video/mp4'/>
+            </video>
+            <div class='thumb-tint'/>
+        </div>
+        <div class='card-body'>
+            <div class='tc mono'>00:00:00:00 &#8211; 00:00:20:00</div>
+            <h3>Mehman Logo</h3>
+            <div class='role-tag'>Motion &#183; 2D</div>
+        </div>
+    </div>
+      <div class='card'>
+        <div class='thumb portrait'>
+            <video class='vep-native-video' muted='muted' playsinline='playsinline' preload='none' data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/New%20Menu%20Mehman.mp4'>
+                <source data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/New%20Menu%20Mehman.mp4' type='video/mp4'/>
+            </video>
+            <div class='thumb-tint'/>
+        </div>
+        <div class='card-body'>
+            <div class='tc mono'>00:00:00:00 &#8211; 00:00:20:00</div>
+            <h3>New Menu Mehman</h3>
+            <div class='role-tag'>Motion &#183; 2D</div>
+        </div>
+    </div>
+      <div class='card'>
+        <div class='thumb portrait'>
+            <video class='vep-native-video' muted='muted' playsinline='playsinline' preload='none' data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Oru%20Pools.mp4'>
+                <source data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Oru%20Pools.mp4' type='video/mp4'/>
+            </video>
+            <div class='thumb-tint'/>
+        </div>
+        <div class='card-body'>
+            <div class='tc mono'>00:00:00:00 &#8211; 00:00:20:00</div>
+            <h3>Oru Pools</h3>
+            <div class='role-tag'>Motion &#183; 2D</div>
+        </div>
+    </div>
+      <div class='card'>
+        <div class='thumb portrait'>
+            <video class='vep-native-video' muted='muted' playsinline='playsinline' preload='none' data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Power%20House%20Gym222.mp4'>
+                <source data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Power%20House%20Gym222.mp4' type='video/mp4'/>
+            </video>
+            <div class='thumb-tint'/>
+        </div>
+        <div class='card-body'>
+            <div class='tc mono'>00:00:00:00 &#8211; 00:00:20:00</div>
+            <h3>Power House Gym222</h3>
+            <div class='role-tag'>Motion &#183; 2D</div>
+        </div>
+    </div>
+      <div class='card'>
+        <div class='thumb portrait'>
+            <video class='vep-native-video' muted='muted' playsinline='playsinline' preload='none' data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Shreeji%20Logo.mp4'>
+                <source data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Shreeji%20Logo.mp4' type='video/mp4'/>
+            </video>
+            <div class='thumb-tint'/>
+        </div>
+        <div class='card-body'>
+            <div class='tc mono'>00:00:00:00 &#8211; 00:00:20:00</div>
+            <h3>Shreeji Logo</h3>
+            <div class='role-tag'>Motion &#183; 2D</div>
+        </div>
+    </div>
+      <div class='card'>
+        <div class='thumb portrait'>
+            <video class='vep-native-video' muted='muted' playsinline='playsinline' preload='none' data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Sssssssss22222222.mp4'>
+                <source data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Sssssssss22222222.mp4' type='video/mp4'/>
+            </video>
+            <div class='thumb-tint'/>
+        </div>
+        <div class='card-body'>
+            <div class='tc mono'>00:00:00:00 &#8211; 00:00:20:00</div>
+            <h3>Sssssssss22222222</h3>
+            <div class='role-tag'>Motion &#183; 2D</div>
+        </div>
+    </div>
+      <div class='card'>
+        <div class='thumb portrait'>
+            <video class='vep-native-video' muted='muted' playsinline='playsinline' preload='none' data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Swaad%20New%20222.mp4'>
+                <source data-src='https://github.com/secondoption32/Video-editing-portfolio-blogger/raw/refs/heads/main/Motion%20grafphics%20100MB%20videos/Swaad%20New%20222.mp4' type='video/mp4'/>
+            </video>
+            <div class='thumb-tint'/>
+        </div>
+        <div class='card-body'>
+            <div class='tc mono'>00:00:00:00 &#8211; 00:00:20:00</div>
+            <h3>Swaad New 222</h3>
+            <div class='role-tag'>Motion &#183; 2D</div>
+        </div>
+    </div>
+    </div>
+  </section>
+
+  <div class='filmstrip'/>
+
+  <!-- 3D Work -->
+  <section class='section' id='vep-3d'>
+    <div class='section-head'>
+      <h2>3D work</h2>
+    </div>
+    <div class='grid grid-portrait grid-small'>
+      <div class='card'>
+        <div class='thumb portrait'>
+            <video class='video-js vep-bg-video vjs-vid' id='vjs-vid-10' data-yt-id='tDwgFFYjF8M' preload='auto'>
+                <source src='https://www.youtube.com/watch?v=tDwgFFYjF8M' type='video/youtube'/>
+            </video>
+            <div class='thumb-tint'/>
+        </div>
+        <div class='card-body'>
+            <div class='tc mono'>00:00:00:00 &#8211; 00:00:15:00</div>
+            <h3>Product Render &#8212; 3D Loop</h3>
+            <div class='role-tag'>3D &#183; Render</div>
+        </div>
+    </div>
+      <div class='card'>
+        <div class='thumb portrait'>
+            <video class='video-js vep-bg-video vjs-vid' id='vjs-vid-11' data-yt-id='tDwgFFYjF8M' preload='auto'>
+                <source src='https://www.youtube.com/watch?v=tDwgFFYjF8M' type='video/youtube'/>
+            </video>
+            <div class='thumb-tint'/>
+        </div>
+        <div class='card-body'>
+            <div class='tc mono'>00:00:00:00 &#8211; 00:00:18:00</div>
+            <h3>Abstract Loop &#8212; 3D Motion</h3>
+            <div class='role-tag'>3D &#183; Motion</div>
+        </div>
+    </div>
+    </div>
+  </section>
+
+  <div class='filmstrip'/>
+
+  <!-- Creative Toolkit -->
+  <section class='section' id='vep-toolkit'>
+    <div class='section-head'>
+      <h2>Creative toolkit</h2>
+      <span class='count mono'>TOOLS OF THE TRADE</span>
+    </div>
+    <div class='toolkit-grid'>
+      <div class='tool-card'>
+        <img alt='DaVinci Resolve' class='tool-icon' src='https://github.com/secondoption32/Video-editing-portfolio-blogger/blob/main/dAVINCI%20iCON.png?raw=true'/>
+        <span class='tool-name'>DaVinci Resolve</span>
+      </div>
+      <div class='tool-card'>
+        <img alt='Fusion' class='tool-icon' src='https://github.com/secondoption32/Video-editing-portfolio-blogger/blob/main/fUSION%20ICON.png?raw=true'/>
+        <span class='tool-name'>Fusion</span>
+      </div>
+      <div class='tool-card'>
+        <img alt='Blender' class='tool-icon' src='https://github.com/secondoption32/Video-editing-portfolio-blogger/blob/main/BLENDER%20ICON.png?raw=true'/>
+        <span class='tool-name'>Blender</span>
+      </div>
+      <div class='tool-card'>
+        <img alt='Photoshop' class='tool-icon' src='https://github.com/secondoption32/Video-editing-portfolio-blogger/blob/main/PHOTOSHOP%20ICON.png?raw=true'/>
+        <span class='tool-name'>Photoshop</span>
+      </div>
+      <div class='tool-card'>
+        <img alt='Illustrator' class='tool-icon' src='https://github.com/secondoption32/Video-editing-portfolio-blogger/blob/main/ILLUSTRATOR%20ICON.png?raw=true'/>
+        <span class='tool-name'>Illustrator</span>
+      </div>
+    </div>
+  </section>
+
+  <div class='filmstrip'/>
+
+  <!-- About / Sidebar -->
+  <section class='section' id='vep-about'>
+    <div class='about'>
+      <h2>About</h2>
+      <b:section class='about-text' id='about-text' showaddelement='yes'>
+        <b:widget id='Text1' locked='false' title='About' type='Text' version='2' visible='true'>
+          <b:widget-settings>
+            <b:widget-setting name='content'><![CDATA[I'm a video editor passionate about creating clean, cinematic, and engaging videos. I specialize in reels, commercials, and brand content with a focus on storytelling, smooth edits, color grading, and motion graphics.]]></b:widget-setting>
+          </b:widget-settings>
+          <b:includable id='main'>
+            <p><data:content/></p>
+          </b:includable>
+        </b:widget>
+      </b:section>
+    </div>
+  </section>
+
+  <div class='filmstrip'/>
+
+  <!-- Contact -->
+  <section class='section contact' id='vep-contact'>
+    <h2>Let&#39;s cut<br/>something great.</h2>
+    <div class='contact-links'>
+      <b:section class='contact-email' id='contact-email' showaddelement='yes'>
+        <b:widget id='Text2' locked='false' title='Contact' type='Text' version='2' visible='true'>
+          <b:widget-settings>
+            <b:widget-setting name='content'><![CDATA[sheikhshoyab1999@gmail.com]]></b:widget-setting>
+          </b:widget-settings>
+          <b:includable id='main'>
+            <img alt='Email' class='contact-icon' src='https://github.com/secondoption32/Video-editing-portfolio-blogger/blob/main/EMAIL%20ICON.png?raw=true'/>
+            <a class='email mono' expr:href='&quot;mailto:&quot; + data:content'><data:content/></a>
+          </b:includable>
+        </b:widget>
+      </b:section>
+      <span class='contact-sep'>&#183;</span>
+      <img alt='Instagram' class='contact-icon' src='https://github.com/secondoption32/Video-editing-portfolio-blogger/blob/main/INSTA%20ICON.png?raw=true'/>
+      <a class='social-link mono' href='https://www.instagram.com/editbyshoy?igsh=MTM0anBjbWM5eW85bQ==' target='_blank' rel='noopener'>@editbyshoy</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class='footer-inner'>
+      <span class='footer-brand'><data:blog.title/></span>
+      <b:section class='footer' id='footer' showaddelement='yes'>
+        <b:widget id='Text3' locked='false' title='Footer' type='Text' version='2' visible='true'>
+          <b:widget-settings>
+            <b:widget-setting name='content'/>
+          </b:widget-settings>
+          <b:includable id='main'><b:if cond='data:content != &quot;&quot;'><span class='footer-tagline'><data:content/></span></b:if></b:includable>
+        </b:widget>
+      </b:section>
+      <span class='footer-copy'>&#169; <data:blog.title/></span>
+    </div>
+  </footer>
+  <!-- Video modal -->
+  <div class='modal-overlay' id='vep-modal-overlay'>
+    <div class='modal-box'>
+      <span class='modal-close' id='vep-modal-close'>Close &#10005;</span>
+      <div class='modal-frame'>
+        <iframe allow='autoplay; fullscreen' allowfullscreen='allowfullscreen' id='vep-modal-iframe'/>
+        <video class='modal-native-video' controls='controls' id='vep-modal-video' playsinline='playsinline'/>
+      </div>
+    </div>
+  </div>
+
+  <script type='text/javascript'>
+  //<![CDATA[
+  document.addEventListener('DOMContentLoaded', function () {
+
+    // ---- Live REC timecode (HH:MM:SS:FF @ 30fps) ----
+    (function () {
+      var tcEl = document.getElementById('vep-tc');
+      if (!tcEl) return;
+      var startTime = Date.now();
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+      function tick() {
+        var elapsedMs = Date.now() - startTime;
+        var totalFrames = Math.floor(elapsedMs / 1000 * 30);
+        var frames = totalFrames % 30;
+        var totalSeconds = Math.floor(totalFrames / 30);
+        var seconds = totalSeconds % 60;
+        var totalMinutes = Math.floor(totalSeconds / 60);
+        var minutes = totalMinutes % 60;
+        var hours = Math.floor(totalMinutes / 60);
+        tcEl.textContent = pad(hours) + ':' + pad(minutes) + ':' + pad(seconds) + ':' + pad(frames);
+      }
+      tick();
+      setInterval(tick, 1000 / 30);
+    })();
+
+    // ---- Nav background video safety-play ----
+    (function () {
+      var navVid = document.querySelector('#vep-root nav .nav-bg-video');
+      if (navVid) {
+        navVid.muted = true;
+        var p = navVid.play();
+        if (p && p.catch) p.catch(function () {});
+      }
+    })();
+
+    // ---- Video.js background players (reliable autoplay + loop) ----
+    (function () {
+      if (typeof videojs === 'undefined') return;
+      var vids = document.querySelectorAll('.vjs-vid');
+      vids.forEach(function (el) {
+        var player = videojs(el.id, {
+          techOrder: ['youtube'],
+          controls: false,
+          autoplay: true,
+          muted: true,
+          loop: true,
+          preload: 'auto',
+          fluid: false,
+          responsive: false,
+          youtube: {
+            ytControls: 0,
+            rel: 0,
+            showinfo: 0,
+            modestbranding: 1,
+            iv_load_policy: 3,
+            disablekb: 1
+          }
+        });
+        player.ready(function () {
+          player.muted(true);
+          var p = player.play();
+          if (p && p.catch) p.catch(function () {});
+        });
+        // Some browsers need a nudge once metadata loads
+        player.on('loadedmetadata', function () {
+          player.muted(true);
+          player.play();
+        });
+      });
+    })();
+
+    // ---- Lazy-load motion videos in viewport ----
+    (function () {
+      var motionVideos = document.querySelectorAll('#vep-motion .vep-native-video');
+      if (!motionVideos.length) return;
+
+      var observer = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          var video = entry.target;
+          var source = video.querySelector('source');
+          var src = video.getAttribute('data-src');
+          if (src && source) {
+            source.setAttribute('src', src);
+            source.removeAttribute('data-src');
+            video.setAttribute('src', src);
+            video.setAttribute('autoplay', 'autoplay');
+            video.setAttribute('loop', 'loop');
+            video.muted = true;
+            video.playsInline = true;
+            video.preload = 'metadata';
+            var playPromise = video.play();
+            if (playPromise && playPromise.catch) playPromise.catch(function () {});
+          }
+          obs.unobserve(video);
+        });
+      }, { rootMargin: '200px 0px' });
+
+      motionVideos.forEach(function (video) {
+        observer.observe(video);
+      });
+    })();
+
+    // ---- Video modal ----
+    function openModal(src, isNativeVideo) {
+      var overlay = document.getElementById('vep-modal-overlay');
+      var frame = document.getElementById('vep-modal-iframe');
+      var nativeVideo = document.getElementById('vep-modal-video');
+      if (isNativeVideo) {
+        frame.style.display = 'none';
+        nativeVideo.classList.add('active');
+        nativeVideo.muted = false;
+        nativeVideo.volume = 1;
+        nativeVideo.setAttribute('src', src);
+        var playPromise = nativeVideo.play();
+        if (playPromise && playPromise.catch) playPromise.catch(function () {});
+      } else {
+        nativeVideo.pause();
+        nativeVideo.removeAttribute('src');
+        nativeVideo.load();
+        nativeVideo.classList.remove('active');
+        frame.style.display = 'block';
+        frame.setAttribute('src', src);
+      }
+      overlay.classList.add('open');
+    }
+
+    function closeModal() {
+      var overlay = document.getElementById('vep-modal-overlay');
+      var frame = document.getElementById('vep-modal-iframe');
+      var nativeVideo = document.getElementById('vep-modal-video');
+      overlay.classList.remove('open');
+      frame.setAttribute('src', '');
+      nativeVideo.pause();
+      nativeVideo.removeAttribute('src');
+      nativeVideo.load();
+      nativeVideo.classList.remove('active');
+      frame.style.display = 'block';
+    }
+
+    document.getElementById('vep-modal-close').addEventListener('click', closeModal);
+    document.getElementById('vep-modal-overlay').addEventListener('click', function (e) {
+      if (e.target.id === 'vep-modal-overlay') closeModal();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    var cards = document.querySelectorAll('#vep-root .grid .card');
+    cards.forEach(function (card) {
+      var vid = card.querySelector('.vjs-vid');
+      var nativeVid = card.querySelector('.vep-native-video source');
+      var ytId = vid ? vid.getAttribute('data-yt-id') : null;
+      if (ytId) {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', function () {
+          openModal('https://www.youtube.com/embed/' + ytId + '?autoplay=1&rel=0&modestbranding=1');
+        });
+      } else if (nativeVid) {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', function () {
+          openModal(nativeVid.getAttribute('src'), true);
+        });
+      }
+    });
+  });
+  //]]>
+  </script>
+
+</div>
+</body>
+</html>
